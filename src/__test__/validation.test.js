@@ -33,6 +33,10 @@ describe('isFileFormatValid', () => {
         const testString = `5 5\r\n1 2 N\r\n\r\n1 2 N\r\nLMLMLMLMM`;
         expect(isValidFileFormat(testString)).toEqual(true);
     });
+    it('should return true for valid file with digits larger than 9', () => {
+        const testString = `10 10\r\n10 20 N\r\n\r\n10 20 N\r\nLMLMLMLMM`;
+        expect(isValidFileFormat(testString)).toEqual(true);
+    })
     it('should return false for invalid file - bad grid settings', () => {
         const testString = `a 5\r\n1 2 N\r\nLMLMLMLMM`;
         expect(isValidFileFormat(testString)).toEqual(false);
